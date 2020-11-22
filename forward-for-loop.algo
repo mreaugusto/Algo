@@ -1,5 +1,5 @@
 1:Forward iteration over the int array
 2:public void forwardForLoop(int[] array) {
 3:for(int i = 0; i < array.length; i++) {
-	int value = array[i];
+	System.out.println(array[i]);
 }
