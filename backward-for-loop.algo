@@ -1,5 +1,5 @@
 1:Backward iteration over the int array
 2:public void backwardForLoop(int[] array) {
 3:for(int i = array.length - 1; i >= 0; i--) {
-	int value = array[i];
+	System.out.println(array[i]);
 }
