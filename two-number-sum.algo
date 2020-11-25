@@ -6,10 +6,10 @@
 	while(left < right) {
 		int currentSum = array[left] + array[right];
 		if(currentSum == targetSum) {
-			return new int[]{array[left], array[right]};
+			return new int[] {array[left], array[right]};
 		} else if(currentSum < targetSum) {
 			left++;
-		} else if(currentSum > targetSum) {
+		} else {
 			right--;
 		}
 	}
