@@ -1,4 +1,4 @@
-1:Remove the Nth element from the end of a singly-lined list
+1:Remove the Nth element from the end of a singly-linked list
 2:/**
  * Definition for singly-linked list.
  * public class ListNode {
