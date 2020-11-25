@@ -9,8 +9,8 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-3:public ListNode removeNthFromEnd(ListNode head, int n) {
-	ListNode dummy = new ListNode(0);
+ public ListNode removeNthFromEnd(ListNode head, int n) {
+3:ListNode dummy = new ListNode(0);
 	dummy.next = head;
 	ListNode first = dummy;
 	ListNode second = dummy;
@@ -23,4 +23,3 @@
 	}
 	second.next = second.next.next;
 	return dummy.next;
-}
