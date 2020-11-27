@@ -1,0 +1,16 @@
+1: Given an array `nums` of n integers where n > 1,  return an array `output` such that `output[i]` is equal to the product of all the elements of `nums` except `nums[i]`.
+Note: Please solve it without division and in O(n).
+2:public int[] arrayOfProducts(int[] array) {
+3:	int[] products = new int[array.length];
+	int leftRunningProduct = 1;
+	for(int i = 0; i < array.length; i++) {
+		products[i] = leftRunningProduct;
+		leftRunningProduct *= array[i];
+	}
+	int rightRunningProduct = 1;
+	for(int i = array.length - 1; i >= 0; i--) {
+		products[i] *= rightRunningProduct;
+		rightRunningProduct *= array[i];
+	}
+	return products;
+}
