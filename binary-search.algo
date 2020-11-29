@@ -1,0 +1,14 @@
+1:Given a sorted (in ascending order) integer array `array` of n elements and a `target` value, 
+write a function to search target in `array`. If `target` exists, then return its index, otherwise return -1.
+2:public int search(int[] array, int target) {
+3:	int low = 0;
+	int high = array.length - 1;
+	while(low <= high) {
+		int mid = (low + high) >>> 1;
+		int midVal = array[mid];
+		if(target == midVal) return mid;
+		if(target > midVal) low = mid + 1;
+		else high = mid - 1;
+	}
+	return -1;
+}
