@@ -1,6 +1,5 @@
 1:Return the 2 number that added to each other results in the target sum
-2:public static int[] twoNumberSum(int[] array, int targetSum) {
-3:
+2:public static int[] twoNumberSum(int[] array, int targetSum) {3:
 	Arrays.sort(array);
 	int left = 0;
 	int right = array.length - 1;
