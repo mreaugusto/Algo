@@ -2,15 +2,15 @@
 Note: Please solve it without division and in O(n).
 2:public int[] arrayOfProducts(int[] array) {3:
 	int[] products = new int[array.length];
-	int leftRunningProduct = 1;
+	int left = 1;
 	for(int i = 0; i < array.length; i++) {
-		products[i] = leftRunningProduct;
-		leftRunningProduct *= array[i];
+		products[i] = left;
+		left *= array[i];
 	}
-	int rightRunningProduct = 1;
+	int right = 1;
 	for(int i = array.length - 1; i >= 0; i--) {
-		products[i] *= rightRunningProduct;
-		rightRunningProduct *= array[i];
+		products[i] *= right;
+		right *= array[i];
 	}
 	return products;
 }
