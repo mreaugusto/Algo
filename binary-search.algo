@@ -6,9 +6,12 @@ write a function to search target in `array`. If `target` exists, then return it
 	while(low <= high) {
 		int mid = (low + high) >>> 1;
 		int midVal = array[mid];
-		if(target == midVal) return mid;
-		if(target > midVal) low = mid + 1;
-		else high = mid - 1;
+		if(midVal == target) 
+			return mid;
+		if(midVal < target) 
+			high = mid - 1;
+		else 
+			low = mid + 1;
 	}
 	return -1;
 }
