@@ -6,7 +6,8 @@ Note: Assume that all students have different scores
 	int[] rewards = new int[scores.length];
 	Arrays.fill(rewards, 1);
 	for(int i = 1; i < scores.length; i++) {
-		if(scores[i] > scores[i - 1]) rewards[i] = rewards[i - 1] + 1;
+		if(scores[i] > scores[i - 1])
+			rewards[i] = rewards[i - 1] + 1;
 	}
 	for(int i = scores.length - 2; i >= 0; i--) {
 		if(scores[i] > scores[i + 1])
