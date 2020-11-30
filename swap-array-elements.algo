@@ -1,0 +1,6 @@
+1:Swap the elements of the `array`
+2:public void swap(int[] array, int i, int j) {3:
+	int swap = array[i];
+	array[i] = array[j];
+	array[j] = swap;
+}
