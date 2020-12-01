@@ -1,0 +1,20 @@
+1:Given an array with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+2:public void sortColors(int[] array) {3:
+	int firstIdx = 0;
+	int secondIdx = 0;
+	int thirdIdx = array.length - 1;
+	while(secondIdx <= thirdIdx) {
+		int value = array[secondIdx];
+		if(value == 0) {
+			swap(firstIdx, secondIdx, array);
+			firstIdx++;
+			secondIdx++;
+		} else if(value == 1) {
+			secondIdx++;
+		} else {
+			swap(secondIdx, thirdIdx, array);
+			thirdIdx--;
+		}
+	}
+}
