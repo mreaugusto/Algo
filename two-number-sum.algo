@@ -1,16 +1,16 @@
 1:Return the 2 number that added to each other results in the `target` sum
 2:public static int[] twoNumberSum(int[] array, int target) {3:
 	Arrays.sort(array);
-	int left = 0;
-	int right = array.length - 1;
-	while(left < right) {
-		int sum = array[left] + array[right];
+	int low = 0;
+	int high = array.length - 1;
+	while(low < high) {
+		int sum = array[low] + array[high];
 		if(sum == target)
-			return new int[] { array[left], array[right] };
+			return new int[] { array[low], array[high] };
 		if(sum < target)
-			left++;
+			low++;
 		else
-			right--;
+			high--;
 	}
 	return new int[0];
 }
