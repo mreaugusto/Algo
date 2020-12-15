@@ -1,0 +1,28 @@
+1:Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+2:/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public ListNode detectCycle(ListNode head) {3:
+	ListNode fast = head;
+	ListNode slow = head;
+	do {
+		if(fast == null || fast.next == null)
+			return null;
+		fast = fast.next.next;
+		slow = slow.next;
+	} while(fast != slow);
+	slow = head;
+	while(slow != fast) {
+		slow = slow.next;
+		fast = fast.next;
+	}
+	return slow;
+}
