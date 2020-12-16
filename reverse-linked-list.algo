@@ -10,13 +10,13 @@
  * }
  */
 public ListNode reverseList(ListNode head) {3:
-	LinkedList previousNode = null;
-	LinkedList currentNode = head;
-	while(currentNode != null) {
-		LinkedList nextNode = currentNode.next;
-		currentNode.next = previousNode;
-		previousNode = currentNode;
-		currentNode = nextNode;
+	LinkedList previous = null;
+	LinkedList current = head;
+	while(current != null) {
+		LinkedList next = current.next;
+		current.next = previous;
+		previous = current;
+		current = next;
 	}
-	return previousNode;
+	return previous;
 }
