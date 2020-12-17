@@ -10,7 +10,7 @@
  * }
  */
 public ListNode rotateRight(ListNode head, int k) {3:
-	if(head == null) 
+	if(head == null)
 		return null;
 	ListNode tail = head;
 	int length = 1;
