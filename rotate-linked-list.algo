@@ -1,5 +1,5 @@
 1:Given the head of a linked list, rotate the list to the right by k places.
-/**
+2:/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -19,12 +19,12 @@ public ListNode rotateRight(ListNode head, int k) {3:
 		length++;
 	}
 	int offset = Math.abs(k) % length;
-	if(offset == 0) return head;
+	if(offset == 0)
+		return head;
 	int newTailPosition = k > 0 ? length - offset : offset;
 	ListNode newTail = head;
-	for(int i = 1; i < newTailPosition; i++) {
+	for(int i = 1; i < newTailPosition; i++)
 		newTail = newTail.next;
-	}
 	ListNode newHead = newTail.next;
 	newTail.next = null;
 	tail.next = head;
