@@ -1,7 +1,7 @@
 1:Return the start and the end index of the array that contains the target number.
 2:public static int[] searchForRange(int[] array, int target) {3:
 	int low = 0;
-	int high = array.length -1;
+	int high = array.length - 1;
 	int[] range = new int[] { -1, -1 };
 	boolean goLeft = true;
 	int[] pointers = null;
