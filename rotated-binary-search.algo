@@ -1,0 +1,26 @@
+1:You are given an integer array nums sorted in ascending order, and an integer target.
+
+Suppose that nums is rotated at some pivot unknown to you beforehand (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).
+
+If target is found in the array return its index, otherwise, return -1.
+2:public int rotatedBinarySearch(int[] array, int target) {3:
+	int left = 0;
+	int right = array.length - 1;
+	while (left < right) {
+		int mid = (left + right) >>> 1;
+		int value = array[mid];
+		if(value > array[right])
+			left = mid + 1;
+		else
+			right = mid;
+	}
+	int start = left;
+	if(start != 0 && target > array[array.length - 1]) {
+		left = 0;
+		right = start - 1;
+	} else {
+		left = start;
+		right = array.length - 1;
+	}
+	return binarySearch(left, right, target, array);
+}
