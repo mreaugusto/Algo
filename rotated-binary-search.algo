@@ -6,13 +6,13 @@ If target is found in the array return its index, otherwise, return -1.
 2:public int rotatedBinarySearch(int[] array, int target) {3:
 	int left = 0;
 	int right = array.length - 1;
-	while (left < right) {
+	while(left < right) {
 		int mid = (left + right) >>> 1;
 		int value = array[mid];
-		if(value > array[right])
-			left = mid + 1;
-		else
+		if(value < array[right])
 			right = mid;
+		else if(value > array[right])
+			left = mid + 1;
 	}
 	int start = left;
 	if(start != 0 && target > array[array.length - 1]) {
