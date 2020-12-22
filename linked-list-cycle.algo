@@ -14,8 +14,9 @@ public ListNode detectCycle(ListNode head) {3:
 	ListNode fast = head;
 	ListNode slow = head;
 	do {
-		if(fast == null || fast.next == null)
+		if(fast == null || fast.next == null) {
 			return null;
+		}
 		fast = fast.next.next;
 		slow = slow.next;
 	} while(fast != slow);
