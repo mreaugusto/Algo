@@ -10,8 +10,9 @@
  * }
  */
 public ListNode rotateRight(ListNode head, int k) {3:
-	if(head == null)
+	if(head == null) {
 		return null;
+	}
 	ListNode tail = head;
 	int length = 1;
 	while(tail.next != null) {
@@ -19,12 +20,14 @@ public ListNode rotateRight(ListNode head, int k) {3:
 		length++;
 	}
 	int offset = Math.abs(k) % length;
-	if(offset == 0)
+	if(offset == 0) {
 		return head;
+	}
 	int newTailPosition = k > 0 ? length - offset : offset;
 	ListNode newTail = head;
-	for(int i = 1; i < newTailPosition; i++)
+	for(int i = 1; i < newTailPosition; i++) {
 		newTail = newTail.next;
+	}
 	ListNode newHead = newTail.next;
 	newTail.next = null;
 	tail.next = head;
