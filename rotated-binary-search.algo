@@ -12,15 +12,17 @@ If target is found in the array return its index, otherwise, return -1.
 		if(value == target) {
 			return mid;
 		} else if(value < array[left]) {
-			if(target > value && target <= array[right])
+			if(target > value && target <= array[right]) {
 				left = mid + 1;
-			else
+			} else {
 				right = mid - 1;
+			}
 		} else if(value >= array[left]) {
-			if(target < value && target >= array[left])
+			if(target < value && target >= array[left]) {
 				right = mid - 1;
-			else
+			} else {
 				left = mid + 1;
+			}
 		}
 	}
 	return -1;
