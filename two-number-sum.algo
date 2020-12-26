@@ -5,12 +5,14 @@
 	int high = array.length - 1;
 	while(low < high) {
 		int sum = array[low] + array[high];
-		if(sum == target)
+		if(sum == target) {
 			return new int[] { array[low], array[high] };
-		if(sum < target)
+		}
+		if(sum < target) {
 			low++;
-		else
+		} else {
 			high--;
+		}
 	}
 	return new int[0];
 }
