@@ -7,10 +7,10 @@
 	int[] pointers = null;
 	while(low <= high) {
 		int mid = (low + high) >>> 1;
-		int midVal = array[mid];
-		if(midVal < target) {
+		int value = array[mid];
+		if(value < target) {
 			low = mid + 1;
-		} else if(midVal > target) {
+		} else if(value > target) {
 			high = mid - 1;
 		} else {
 			if(goLeft) {
