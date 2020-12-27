@@ -1,0 +1,17 @@
+1:Given an array of integers between 1 and `n` where `n` is the length of the array,
+write a function that returns the first integer that appears more than once in the array
+(when reading from left to right);
+
+If no integer appears in the array more than once, your function should return -1
+
+Note that you're allowed to mutate the array
+2:public int firstDuplicateValue(int[] array) {3:
+	for(Integer value : array) {
+		int valueIndex = Math.abs(value) - 1;
+		if(array[valueIndex] < 0) {
+			return valueIndex + 1;
+		}
+		array[valueIndex] *= -1;
+	}
+	return -1;
+}
