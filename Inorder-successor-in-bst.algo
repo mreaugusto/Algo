@@ -1,0 +1,29 @@
+1:Given a binary search tree and a node in it, find the in-order successor of that node in the BST.
+2:static class BinaryTree {
+	public int value;
+	public BinaryTree left = null;
+	public BinaryTree right = null;
+	public BinaryTree parent = null;
+
+	public BinaryTree(int value) {
+		this.value = value;
+	}
+}
+public BinaryTree findSuccessor(BinaryTree tree, BinaryTree node) {3:
+	if(node.right != null) return getLeftmostChild(node.right);
+	return getRightmostParent(node);
+}
+public BinaryTree getLeftmostChild(BinaryTree node) {
+	BinaryTree currentNode = node;
+	while(currentNode.left != null) {
+		currentNode = currentNode.left;
+	}
+	return currentNode;
+}
+public BinaryTree getRightmostParent(BinaryTree node) {
+	BinaryTree currentNode = node;
+	while(currentNode.parent != null && currentNode.parent.right == currentNode) {
+		currentNode = currentNode.parent;
+	}
+	return currentNode.parent;
+}
