@@ -10,20 +10,22 @@
 	}
 }
 public BinaryTree findSuccessor(BinaryTree tree, BinaryTree node) {3:
-	if(node.right != null) return getLeftmostChild(node.right);
+	if(node.right != null) {
+		return getLeftmostChild(node.right);
+	}
 	return getRightmostParent(node);
 }
 public BinaryTree getLeftmostChild(BinaryTree node) {
-	BinaryTree currentNode = node;
-	while(currentNode.left != null) {
-		currentNode = currentNode.left;
+	BinaryTree current = node;
+	while(current.left != null) {
+		current = current.left;
 	}
-	return currentNode;
+	return current;
 }
 public BinaryTree getRightmostParent(BinaryTree node) {
-	BinaryTree currentNode = node;
-	while(currentNode.parent != null && currentNode.parent.right == currentNode) {
-		currentNode = currentNode.parent;
+	BinaryTree current = node;
+	while(current.parent != null && current.parent.right == current) {
+		current = current.parent;
 	}
-	return currentNode.parent;
+	return current.parent;
 }
