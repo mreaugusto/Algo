@@ -1,5 +1,5 @@
 1:Given a Fibonacci number `value`, the task is to find the previous Fibonacci number.
 2:static int previousFibonacci(int value) {3:
 	double ans = value / ((1 + Math.sqrt(5)) / 2.0);
-		return (int) Math.round(ans);
+	return (int) Math.round(ans);
 }
