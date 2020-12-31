@@ -11,7 +11,8 @@ If target is found in the array return its index, otherwise, return -1.
 		int value = array[mid];
 		if(value == target) {
 			return mid;
-		} else if(value < array[left]) {
+		}
+		if(value < array[left]) {
 			if(target > value && target <= array[right]) {
 				left = mid + 1;
 			} else {
