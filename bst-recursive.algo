@@ -1,29 +1,28 @@
 1:Create methods that traverse a BST in preOrder, inOrder, and postOrder, respectively.
 2:/**
-	 * class Node {
-	 * 	int value;
-	 *	Node left;
-	 *	Node right;
-	 * }
-	 * @param node
-	 */
+  * class Node {
+  *   int value;
+  *   Node left;
+  *   Node right;
+  * }
+*/
 	
 public void preOrder(Node node) {3:
-	if (node != null) {
+	if(node != null) {
 		System.out.println(node.value);
 		preOrder(node.left);
 		preOrder(node.right);
 	}
 }
 public void inOrder(Node node) {
-	if (node != null) {
+	if(node != null) {
 		inOrder(node.left);
 		System.out.println(node.value);
 		inOrder(node.right);
 	}
 }
 public void postOrder(Node node) {
-	if (node != null) {
+	if(node != null) {
 		postOrder(node.left);
 		postOrder(node.right);
 		System.out.println(node.value);
