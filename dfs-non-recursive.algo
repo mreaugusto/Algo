@@ -1,0 +1,40 @@
+1:Traverse the tree without recursion inOrder, and preOrder, respectively;
+2:/**
+ * public class Node {
+ *	int value;
+ *	Node left;
+ *	Node right;
+ * }
+ */
+public void inOrder(Node root) {3:
+	Stack<Node> stack = new Stack<>();
+	stack.push(root);
+	Node current = stack.peek();
+	while(!stack.isEmpty()) {
+		while(current.left != null) {
+			current = current.left;
+			stack.push(current);
+		}
+		current = stack.pop();
+		System.out.println(current.value);
+		if(current.right != null) {
+			current = current.right;
+			stack.push(current);
+		}
+	}
+}
+public void preOrder(Node root) {
+	Stack<Node> stack = new Stack<>();
+	stack.push(root);
+	Node current = stack.peek();
+	while(!stack.isEmpty()) {
+		current = stack.pop();
+		System.out.println(current.value);
+		if(current.right != null) {
+			stack.push(current.right);
+		}
+		if(current.left != null) {
+			stack.push(current.left);
+		}
+	}
+}
