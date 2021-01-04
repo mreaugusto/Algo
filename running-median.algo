@@ -1,0 +1,37 @@
+1:
+Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.
+For example,
+
+[2,3,4], the median is 3
+
+[2,3], the median is (2 + 3) / 2 = 2.5
+
+Design a data structure that supports the following two operations:
+
+    void add(int num) - Add a integer number from the data stream to the data structure.
+    double getMedian() - Return the median of all elements so far.
+
+2:3:
+PriorityQueue<Integer> small = new PriorityQueue<>(Collections.reverseOrder());
+PriorityQueue<Integer> large = new PriorityQueue<>();
+public void add(int num) {
+	if(small.size() == large.size()) {
+		large.offer(num);
+		small.offer(large.poll());
+	} else {
+		small.offer(num);
+		large.offer(small.poll());
+	}
+}
+public double getMedian() {
+	if(small.isEmpty()) {
+		throw new IllegalStateException("Empty collection");
+	}
+	double median;
+	if(small.size() == large.size()) {
+		median = (small.peek() + large.peek()) / 2.0;
+	} else {
+		median = small.peek();
+	}
+	return median;
+}
