@@ -14,12 +14,12 @@ Design a data structure that supports the following two operations:
 2:3:
 PriorityQueue<Integer> small = new PriorityQueue<>(Collections.reverseOrder());
 PriorityQueue<Integer> large = new PriorityQueue<>();
-public void add(int num) {
+public void add(int value) {
 	if(small.size() == large.size()) {
-		large.offer(num);
+		large.offer(value);
 		small.offer(large.poll());
 	} else {
-		small.offer(num);
+		small.offer(value);
 		large.offer(small.poll());
 	}
 }
