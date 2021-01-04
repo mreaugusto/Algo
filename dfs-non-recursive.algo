@@ -6,9 +6,9 @@
  *	Node right;
  * }
  */
-public void inOrder(Node root) {3:
+public void inOrder(Node node) {3:
 	Stack<Node> stack = new Stack<>();
-	stack.push(root);
+	stack.push(node);
 	Node current = stack.peek();
 	while(!stack.isEmpty()) {
 		while(current.left != null) {
@@ -23,9 +23,9 @@ public void inOrder(Node root) {3:
 		}
 	}
 }
-public void preOrder(Node root) {
+public void preOrder(Node node) {
 	Stack<Node> stack = new Stack<>();
-	stack.push(root);
+	stack.push(node);
 	Node current = stack.peek();
 	while(!stack.isEmpty()) {
 		current = stack.pop();
