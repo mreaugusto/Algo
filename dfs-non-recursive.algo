@@ -1,40 +1,50 @@
-1:Traverse the tree without recursion inOrder, and preOrder, respectively;
+1:Traverse the tree without recursion in order. Methods: inOrder(BinaryTree), and inOrderWithStack(Node root)
 2:/**
- * public class Node {
+ * public class BinaryTree {
  *	int value;
- *	Node left;
- *	Node right;
+ 	BinaryTree parent;
+ *	BinaryTree left;
+ *	BinaryTrree right;
+ * }
+ * public class Node {
+ * 	int value;
+ * 	Node left;
+ * 	Node right;
  * }
  */
-public void inOrder(Node node) {3:
-	Stack<Node> stack = new Stack<>();
-	stack.push(node);
-	Node current = stack.peek();
-	while(!stack.isEmpty()) {
-		while(current.left != null) {
-			current = current.left;
-			stack.push(current);
+public void inOrder(BinaryTree tree) {3:
+	BinaryTree previous = null;
+	BinaryTree current = tree;
+	while(current != null) {
+		BinaryTree next;
+		if(previous == null || previous == current.parent) {
+			if(current.left != null) {
+				next = current.left;
+			} else {
+				callback.apply(current);
+				next = current.right != null ? current.right : current.parent;
+			}
+		} else if(previous == current.left) {
+			callback.apply(current);
+			next = current.right != null ? current.right : current.parent;
+		} else {
+			next = current.parent;
 		}
-		current = stack.pop();
-		System.out.println(current.value);
-		if(current.right != null) {
-			current = current.right;
-			stack.push(current);
-		}
+		previous = current;
+		current = next;
 	}
 }
-public void preOrder(Node node) {
+public List<Integer> inOrderWithStack(Node node) {
+	List<Integer> ans = new ArrayList<>();
 	Stack<Node> stack = new Stack<>();
-	stack.push(node);
-	Node current = stack.peek();
-	while(!stack.isEmpty()) {
-		current = stack.pop();
-		System.out.println(current.value);
-		if(current.right != null) {
-			stack.push(current.right);
+	while(node != null || !stack.isEmpty()) {
+		while(node != null) {
+			stack.push(node);
+			node = node.left;
 		}
-		if(current.left != null) {
-			stack.push(current.left);
-		}
+		node = stack.pop();
+		ans.add(node.value);
+		node = node.right;
 	}
+	return ans;
 }
