@@ -1,4 +1,4 @@
-1:Traverse the tree without recursion in order. Methods: inOrder(BinaryTree), and inOrderWithStack(Node root)
+1:Traverse the tree without recursion in order. Methods: inOrder(BinaryTree), and inOrderWithStack(Node node), inOrderMorris(Node node)
 2:/**
  * public class BinaryTree {
  *	int value;
@@ -45,6 +45,26 @@ public List<Integer> inOrderWithStack(Node node) {
 		node = stack.pop();
 		ans.add(node.value);
 		node = node.right;
+	}
+	return ans;
+}
+public List<Integer> inOrderMorris(Node node) {
+	List<Integer> ans = new ArrayList<>();
+	Node pre;
+	while(node != null) {
+		if(node.left == null) {
+			ans.add(node.val);
+			node = node.right;
+		} else {
+			pre = node.left;
+			while(pre.right != null) {
+				pre = pre.right;
+			}
+			pre.right = node;
+			Node temp = node;
+			node = node.left;
+			temp.left = null;
+		}
 	}
 	return ans;
 }
