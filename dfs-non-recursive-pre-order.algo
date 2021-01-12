@@ -1,4 +1,4 @@
-1:Implement non-recursive solutions to the pre order BST. preOrderWithStack(Node node), and preOrderMorris(Node node)
+1:Implement non-recursive solutions to the pre order BST. preOrderWithStack(Node node)
 /*
  * class Node {
  * 	int value;
@@ -7,7 +7,7 @@
  * }
  */
 2:3:
-public List<Integer> preOrderWithStack(Node node) {
+public List<Integer> preOrder(Node node) {
 	List<Integer> ans = new ArrayList<>();
 	Stack<Node> stack = new Stack<>();
 	while(node != null || !stack.isEmpty()) {
@@ -20,26 +20,6 @@ public List<Integer> preOrderWithStack(Node node) {
 			stack.push(node.right);
 		}
 		node = node.left;
-	}
-	return ans;
-}
-public List<Integer> preOrderMorris(Node node) {
-	List<Integer> ans = new ArrayList<>();
-	Node pre;
-	while(node != null) {
-		if(node.left == null) {
-			ans.add(node.val);
-			node = node.right;
-		} else {
-			pre = node.left;
-			while(pre.right != null) {
-				pre = pre.right;
-			}
-			pre.right = node;
-			Node temp = node;
-			node = node.left;
-			temp.left = null;
-		}
 	}
 	return ans;
 }
